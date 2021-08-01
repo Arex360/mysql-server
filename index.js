@@ -14,19 +14,21 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded());
 app.post('/findbyid',(req,response)=>{
     let id = req.body.id
-   // connection.connect()
     connection.query(`select * from students where id = ${id}`,(err,res,field)=>{
         console.log(res)
         response.send(res)
     })
-   // connection.end()
 })
 app.get('/getstudents',(req,res)=>{
-  //  connection.connect()
     connection.query('select * from students',(err,result,field)=>{
         res.send(result)
     })
-   // connection.end()
+})
+app.post('/insertStudent',(req,res)=>{
+    let {name,age} = req.body
+    connection.query(`insert into students (name,age,class) values ('${name}','${age}','${req.body.class}')`,(err,result,field)=>{
+        res.send("Student added in record")
+    })
 })
 app.get('/',(req,res)=>{
     res.send("hello")
