@@ -13,4 +13,7 @@ app.listen(3000,()=>{
     console.log('server started')
     connection.connect()
     console.log('connected to database')
+    connection.query('select * from students',(err,results,fields)=>{
+        console.log(results)
+    })
 })
