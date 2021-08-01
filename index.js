@@ -21,7 +21,6 @@ app.post('/findbyid',(req,response)=>{
         response.send(res)
     })
     connection.end()
-    response.send(id)
 })
 
 app.get('/',(req,res)=>{
