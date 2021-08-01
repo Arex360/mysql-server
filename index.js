@@ -14,12 +14,13 @@ app.use(cors())
 app.use(bodyparser.json())
 app.post('/findbyid',(req,response)=>{
     let id = req.body.id
-    connection.connect()
+   /* connection.connect()
     connection.query(`select * from students where id = ${id}`,(err,res,field)=>{
         console.log(res)
         response.send(res)
     })
-    connection.end()
+    connection.end()*/
+    response.send(id)
 })
 
 app.get('/',(req,res)=>{
