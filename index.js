@@ -8,7 +8,6 @@ const connection = mysql.createConnection({
     password: '123',
     database: 'student'
 })
-
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
@@ -20,9 +19,15 @@ app.post('/findbyid',(req,response)=>{
         console.log(res)
         response.send(res)
     })
+   // connection.end()
+})
+app.get('/getstudents',(req,res)=>{
+    connection.connect()
+    connection.query('select * from students',(err,result,field)=>{
+        res.send(result)
+    })
     connection.end()
 })
-
 app.get('/',(req,res)=>{
     res.send("hello")
 })
