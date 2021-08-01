@@ -13,7 +13,7 @@ const app = express()
 app.use(cors())
 app.use(bodyparser.json())
 app.post('/findbyid',(req,response)=>{
-    let id = parseInt(req.body.id)
+    let id = req.body.id
     connection.connect()
     connection.query(`select * from students where id = ${id}`,(err,res,field)=>{
         console.log(res)
