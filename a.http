@@ -1,6 +1,6 @@
-POST http://20.106.192.35:3000/findbyid HTTP/1.1
+POST http://localhost:3000/findbyid HTTP/1.1
 content-type: application/json
 
 {
-    "id": 1,
+    "id": "1"
 }

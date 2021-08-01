@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const bodyparser = require('body-parser')
+const bodyParser = require('body-parser')
 const mysql = require('mysql')
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -11,15 +11,16 @@ const connection = mysql.createConnection({
 
 const app = express()
 app.use(cors())
-app.use(bodyparser.json())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded());
 app.post('/findbyid',(req,response)=>{
     let id = req.body.id
-   /* connection.connect()
+    connection.connect()
     connection.query(`select * from students where id = ${id}`,(err,res,field)=>{
         console.log(res)
         response.send(res)
     })
-    connection.end()*/
+    connection.end()
     response.send(id)
 })
 
