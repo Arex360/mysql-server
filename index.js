@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded());
 app.post('/findbyid',(req,response)=>{
     let id = req.body.id
-    connection.connect()
+   // connection.connect()
     connection.query(`select * from students where id = ${id}`,(err,res,field)=>{
         console.log(res)
         response.send(res)
@@ -22,11 +22,11 @@ app.post('/findbyid',(req,response)=>{
    // connection.end()
 })
 app.get('/getstudents',(req,res)=>{
-    connection.connect()
+  //  connection.connect()
     connection.query('select * from students',(err,result,field)=>{
         res.send(result)
     })
-    connection.end()
+   // connection.end()
 })
 app.get('/',(req,res)=>{
     res.send("hello")
